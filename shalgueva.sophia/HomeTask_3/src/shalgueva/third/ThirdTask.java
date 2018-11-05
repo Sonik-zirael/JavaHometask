@@ -16,7 +16,7 @@ public class ThirdTask {
 		Tigers[] pride = {t1, t2};
 		ArrayToList<Tigers> newTigers = new ArrayToList<Tigers>();
 		ArrayList<Tigers> tmpL = new ArrayList<Tigers>();
-		newTigers.makeArrayList(pride);
+		tmpL = newTigers.makeArrayList(pride);
 		newTigers.printList(tmpL);
 	}
 }

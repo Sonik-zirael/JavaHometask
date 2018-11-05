@@ -20,9 +20,12 @@ public class FirstTask {
 	}
 
 	public static void main(String[] args) {
-		try {
+		try(Scanner scan = new Scanner(System.in)) {
 			System.out.println("Enter size of matrix: ");
-			Scanner scan = new Scanner(System.in);
+			while (!scan.hasNextInt()) {
+		        System.out.println("That not a number!");
+		        scan.next(); 
+		    }
 			int sizeMatrix = scan.nextInt();
 			scan.close();
 			if (sizeMatrix > 1) {
@@ -31,7 +34,7 @@ public class FirstTask {
 				System.out.println("1");
 			} else {
 				throw new IllegalArgumentException ("Size must be positive");
-			}		
+			}
 		}
 		catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());

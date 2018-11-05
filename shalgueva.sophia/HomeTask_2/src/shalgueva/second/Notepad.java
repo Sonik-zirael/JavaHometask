@@ -7,18 +7,19 @@ public class Notepad {
 	public ArrayList<NoteInNotepad> arrayOfNotes_ = new ArrayList<NoteInNotepad>();
 	
 	public void addNote() {
-		Scanner scan = new Scanner(System.in);
-		String name = scan.nextLine();
-		int age = scan.nextInt();
-		double salary = scan.nextDouble();
+		System.out.println("Add new note");
+		System.out.println("Enter name: ");
+		String name = Correctness.checkCorStr();
+		System.out.println("Enter age: ");
+		int age = Correctness.checkCorInt();
+		System.out.println("Enter salary: ");
+		double salary = Correctness.checkCorDouble();
 		arrayOfNotes_.add(new NoteInNotepad(name, age, salary));
-		scan.close();
 	}
 	
 	public void removeNote() {
-		Scanner scan = new Scanner(System.in);
-		int index = scan.nextInt();
-		scan.close();
+		System.out.println("Enter index of note for deletion: ");
+		int index = Correctness.checkCorInt();
 		if (index > 0 || index <= arrayOfNotes_.size()) {
 			arrayOfNotes_.remove(index);
 		} else {
@@ -27,14 +28,16 @@ public class Notepad {
 	}
 	
 	public void changeNote() {
-		Scanner scan = new Scanner(System.in);
-		int index = scan.nextInt();
+		System.out.println("Enter index of note for change: ");
+		int index = Correctness.checkCorInt();
 		System.out.println("Enter new values");
-		String name = scan.nextLine();
-		int age = scan.nextInt();
-		double salary = scan.nextDouble();
+		System.out.println("Enter name: ");
+		String name = Correctness.checkCorStr();
+		System.out.println("Enter age: ");
+		int age = Correctness.checkCorInt();
+		System.out.println("Enter salary: ");
+		double salary = Correctness.checkCorDouble();
 		NoteInNotepad tmp = new NoteInNotepad(name, age, salary);
-		scan.close();
 		if (index > 0 || index <= arrayOfNotes_.size()) {
 			arrayOfNotes_.remove(index);
 		} else {
@@ -43,7 +46,11 @@ public class Notepad {
 		arrayOfNotes_.set(index, tmp);		
 	}
 	
-	public void showAllNotes() {
+	public void showAllNotes(int amount) {
+		if (amount <= 0) {
+			throw new IllegalArgumentException ("Notepad is empty");
+		}
+		System.out.println("Print all notes: ");
 		for (int i = 0; i < arrayOfNotes_.size(); i++) {
 			System.out.println(arrayOfNotes_.get(i));
 		}
