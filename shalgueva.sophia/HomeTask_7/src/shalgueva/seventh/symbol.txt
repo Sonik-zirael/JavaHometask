@@ -1,0 +1,19 @@
+package shalgueva.eighth;
+
+public class eighthTask {
+
+	public static void main(String[] args) {
+		try {
+			
+		}
+		// TODO Auto-generated method stub
+		catch {
+			
+		}
+		finally {
+			
+		}
+
+	}
+
+}
